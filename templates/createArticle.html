@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+	<div class="col-lg-6">
+        <div class="card">
+			<div class="card-header">
+                <h4>Crear Nuevo Articulo</h4> 
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive transaction-table">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="mb-3">
+                                    <label for="codigoArt" class="form-label">{{ form.codigoArt.label }}</label>
+                                    {{ form.codigoArt }}
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="mb-3">
+                                    <label for="nombreArt" class="form-label">{{ form.nombreArt.label }}</label>
+                                    {{ form.nombreArt }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="descripcionArt" class="form-label">{{ form.descripcionArt.label }}</label>
+                            {{ form.descripcionArt }}
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="unidadBaseArt" class="form-label">{{ form.unidadBaseArt.label }}</label>
+                                    {{ form.unidadBaseArt }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="unidadSatArt" class="form-label">{{ form.unidadSatArt.label }}</label>
+                                    {{ form.unidadSatArt }}
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="claveSatArt" class="form-label">{{ form.claveSatArt.label }}</label>
+                                    {{ form.claveSatArt }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="precioArt" class="form-label">{{ form.precioArt.label }}</label>
+                                    {{ form.precioArt }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive transaction-table">
+                            <button class="btn btn-success waves-effect" type="submit" id="button-addon3">Crear</button> 
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+	</div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h4>Result's</h4> 
+            </div>
+            <div class="card-body">
+                {% if errors %}
+                    {{errors}}
+                {% endif %}                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

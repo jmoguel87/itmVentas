@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Result's</h4> 
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Unidad</th>
+                                <th>Unidad SAT</th>
+                                <th>Clave SAT</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for article in articles %}
+                            <tr>
+                                <td>{{article.codigoArt}}</td>
+                                <td>{{article.nombreArt}}</td>
+                                <td>{{article.descripcionArt}}</td>
+                                <td>{{article.unidadBaseArt}}</td>
+                                <td>{{article.unidadSatArt}}</td>
+                                <td>{{article.claveSatArt}}</td>
+                                <td>{{article.precioArt}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>  
+                </div>              
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

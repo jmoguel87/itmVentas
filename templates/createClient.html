@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+	<div class="col-lg-6">
+        <div class="card">
+			<div class="card-header">
+                <h4>Crear Nuevo Cliente</h4> 
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive transaction-table">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="mb-3">
+                                    <label for="codigoClt" class="form-label">{{ form.codigoClt.label }}</label>
+                                    {{ form.codigoClt }}
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="mb-3">
+                                    <label for="razonSocialClt" class="form-label">{{ form.razonSocialClt.label }}</label>
+                                    {{ form.razonSocialClt }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="mb-3">
+                                    <label for="regimenFiscalClt" class="form-label">{{ form.regimenFiscalClt.label }}</label>
+                                    {{ form.regimenFiscalClt }}
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="mb-3">
+                                    <label for="rfcClt" class="form-label">{{ form.rfcClt.label }}</label>
+                                    {{ form.rfcClt }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="mainTelClt" class="form-label">{{ form.mainTelClt.label }}</label>
+                                    {{ form.mainTelClt }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="mainEmailClt" class="form-label">{{ form.mainEmailClt.label }}</label>
+                                    {{ form.mainEmailClt }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="mainCalleyCruzamientosClt" class="form-label">{{ form.mainCalleyCruzamientosClt.label }}</label>
+                                    {{ form.mainCalleyCruzamientosClt }}
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="mb-3">
+                                    <label for="mainNumExtClt" class="form-label">{{ form.mainNumExtClt.label }}</label>
+                                    {{ form.mainNumExtClt }}
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="mb-3">
+                                    <label for="mainNumIntClt" class="form-label">{{ form.mainNumIntClt.label }}</label>
+                                    {{ form.mainNumIntClt }}
+                                </div>
+                            </div>
+                        </div>                      
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="mainCpClt" class="form-label">{{ form.mainCpClt.label }}</label>
+                                    {{ form.mainCpClt }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="mainAsentamientoClt" class="form-label">{{ form.mainAsentamientoClt.label }}</label>
+                                    {{ form.mainAsentamientoClt }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="mainLocalidadClt" class="form-label">{{ form.mainLocalidadClt.label }}</label>
+                                    {{ form.mainLocalidadClt }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="mainMunicipioClt" class="form-label">{{ form.mainMunicipioClt.label }}</label>
+                                    {{ form.mainMunicipioClt }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="mainEstadoClt" class="form-label">{{ form.mainEstadoClt.label }}</label>
+                                    {{ form.mainEstadoClt }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="mainPaisClt" class="form-label">{{ form.mainPaisClt.label }}</label>
+                                    {{ form.mainPaisClt }}
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="table-responsive transaction-table">
+                            <button class="btn btn-success waves-effect" type="submit" id="button-addon3">Crear</button> 
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+	</div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h4>Result's</h4> 
+            </div>
+            <div class="card-body">
+                {% if errors %}
+                    {{errors}}
+                {% endif %}                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
