@@ -1,0 +1,38 @@
+dir="/home/ubuntu"
+
+FILE="${dir}/backup"
+if [ ! -d "$FILE" ]; then
+    cd "${dir}/"
+    sudo mkdir backup
+fi
+
+if [ ! -d "${dir}/backup/itmVentas" ]; then
+    cd "${dir}/backup"
+    sudo mkdir itmVentas
+fi
+
+if [ ! -d "${dir}/backup/itmVentas/apps" ]; then
+    cd "${dir}/backup/itmVentas"
+    sudo mkdir apps
+    cd "${dir}/backup/itmVentas/apps"
+    sudo mkdir clients
+    sudo mkdir articles
+    cd "${dir}/backup/itmVentas/apps/clients"
+    sudo mkdir migrations
+    cd "${dir}/backup/itmVentas/apps/articles"
+    sudo mkdir migrations
+fi
+
+BACKUPDIR01="${dir}/itmVentas/apps/clients/migrations"
+if [ -d "$BACKUPDIR01" ]; then
+    if [ -e "$BACKUPDIR01/*.py" ]; then
+        sudo cp "${BACKUPDIR01}/*.py" "${dir}/backup/itmVentas/apps/clients/migrations/"
+    fi
+fi
+
+BACKUPDIR01="${dir}/itmVentas/apps/articles/migrations"
+if [ -d "$BACKUPDIR01" ]; then
+    if [ -e "$BACKUPDIR01/*.py" ]; then
+        sudo cp "${BACKUPDIR01}/*.py" "${dir}/backup/itmVentas/apps/articles/migrations/"
+    fi
+fi

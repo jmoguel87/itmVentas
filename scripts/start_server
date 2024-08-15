@@ -1,0 +1,23 @@
+#!/bin/bash
+#service httpd start
+sudo su
+
+dir="/home/ubuntu"
+
+cd "${dir}/itmVentas"
+
+FILE="${dir}/itmVentas/logs"
+if [ ! -d "$FILE" ]; then
+    mkdir logs
+fi
+
+if [ -f "/etc/systemd/system/django.service" ]; then
+    systemctl stop django
+    chown -R ubuntu:ubuntu ${dir}/itmVentas/
+    find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+    find . -path "*.pyc"  -delete
+    cp -r "${dir}/backup/itmVentas/apps/clients/migrations/*.py "${dir}/itmVentas/apps/clients/migrations/
+    cp -r "${dir}/backup/itmVentas/apps/articles/migrations/*.py "${dir}/itmVentas/apps/articles/migrations/
+    source ${dir}/itmVentasenv/bin/activate
+    systemctl start django
+fi

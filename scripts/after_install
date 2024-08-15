@@ -1,0 +1,23 @@
+cd /home/ubuntu/
+
+if [ -f "/etc/systemd/system/django.service" ]; then
+    source /home/ubuntu/itmVentasenv/bin/activate
+    pip3 install -r requirements.txt
+
+    dir="/home/ubuntu"
+    cd "${dir}/"
+
+    FILE="${dir}/itmVentas/logs"
+    if [ ! -d "$FILE" ]; then
+        cd "${dir}/itmVentas"
+        sudo mkdir logs
+    fi
+
+    BACKUPUSRDIR01="${dir}/backup/manage/migrations"
+    if [ -d "$BACKUPUSRDIR01" ]; then
+        if [ -e  "$BACKUPUSRDIR01/*.py" ]; then
+            sudo cp -r "${BACKUPUSRDIR01}/*.py" "${dir}/itmVentas/apps/manage/migrations/"
+        fi
+    fi
+fi
+
