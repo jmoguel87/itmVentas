@@ -237,3 +237,7 @@ LOGGING = {
         }
     },
 }
+
+AWS_URL_PATH = "https://2rgucsqete.execute-api.us-east-1.amazonaws.com/connectDB"
+FIELDS_NAME_CLT = ["uuid","codigoClt","razonSocialClt","rfcClt","regimenFiscalClt","mainTelClt","mainEmailClt","mainCalleyCruzamientosClt","mainNumExtClt","mainNumIntClt","mainCpClt","mainAsentamientoClt","mainLocalidadClt","mainMunicipioClt","mainEstadoClt","mainPaisClt"]
+FIELDS_NAME_ART = ["uuid","codigoArt","nombreArt","descripcionArt","unidadBaseArt","unidadSatArt","claveSatArt","precioArt"]

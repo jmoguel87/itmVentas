@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .forms import frmCreateClient
 from .models import clients
+from django.conf import settings
+from apps.aws_connectDB.aws_sdk import AwsSDKConnectDB
+
+connectDB = AwsSDKConnectDB()
 
 class viewIndex(TemplateView):
 	template_name = 'base.html'
@@ -51,5 +55,17 @@ class ListClientView(TemplateView):
 	def get(self, request):
 		context = {}
 		context['clients'] = clients.objects.all()
+		print("context['clients']")
+		print(str(context['clients']))
+		return render(request,self.template_name,context)
+
+class ListClientViewAWS(TemplateView):
+	template_name = 'awslistClients.html'
+	
+	def get(self, request):
+		context = {}
+		context['clients'] = connectDB.get_selectFrom(tableName= "clients_clients", sql="andSelectFrom", fieldsName=settings.FIELDS_NAME_CLT ,justOneRow=False, dbName="gocontroldb")
+		print("context['clients']")
+		print(context['clients'])
 		return render(request,self.template_name,context)
 
